@@ -1,0 +1,67 @@
+// --- Variables ---
+$font-main: system-ui, -apple-system, sans-serif;
+
+// --- Modern Reset Mixin ---
+@mixin modern-reset {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+  }
+
+  html {
+    // ป้องกันการขยายตัวอักษรอัตโนมัติบนมือถือ
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+    font-family: $font-main;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+  }
+
+  // รูปภาพและสื่อต่างๆ
+  img, picture, svg {
+    max-width: 100%;
+    display: block;
+  }
+
+  // ฟอร์มและปุ่ม
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  // ลบขีดฆ่าใน Link (ถ้าต้องการ)
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  // จัดการ List
+  ul[role='list'], ol[role='list'] {
+    list-style: none;
+  }
+
+  // สำหรับ Accessibility (ซ่อนองค์ประกอบแต่ยังให้อ่านได้ด้วย Screen Reader)
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+// ใช้งาน Mixin
+@include modern-reset;
