@@ -3,10 +3,12 @@ $font-main: system-ui, -apple-system, sans-serif;
 
 // --- Modern Reset Mixin ---
 @mixin modern-reset {
+  // Use border-box for all elements
   *, *::before, *::after {
     box-sizing: border-box;
   }
 
+  // Remove default spacing
   * {
     margin: 0;
     padding: 0;
@@ -14,7 +16,7 @@ $font-main: system-ui, -apple-system, sans-serif;
   }
 
   html {
-    // ป้องกันการขยายตัวอักษรอัตโนมัติบนมือถือ
+    // Prevent font size inflation on mobile
     -webkit-text-size-adjust: none;
     text-size-adjust: none;
   }
@@ -27,29 +29,29 @@ $font-main: system-ui, -apple-system, sans-serif;
     text-rendering: optimizeSpeed;
   }
 
-  // รูปภาพและสื่อต่างๆ
+  // Responsive images and media
   img, picture, svg {
     max-width: 100%;
     display: block;
   }
 
-  // ฟอร์มและปุ่ม
+  // Consistent form elements
   input, button, textarea, select {
     font: inherit;
   }
 
-  // ลบขีดฆ่าใน Link (ถ้าต้องการ)
+  // Clean links
   a {
     text-decoration: none;
     color: inherit;
   }
 
-  // จัดการ List
+  // Clean list styles
   ul[role='list'], ol[role='list'] {
     list-style: none;
   }
 
-  // สำหรับ Accessibility (ซ่อนองค์ประกอบแต่ยังให้อ่านได้ด้วย Screen Reader)
+  // Accessibility helper: Hide element but keep it readable by screen readers
   .visually-hidden {
     position: absolute;
     width: 1px;
@@ -63,5 +65,5 @@ $font-main: system-ui, -apple-system, sans-serif;
   }
 }
 
-// ใช้งาน Mixin
+// Apply the reset
 @include modern-reset;
